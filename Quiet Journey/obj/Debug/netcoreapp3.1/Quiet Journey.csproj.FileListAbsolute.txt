@@ -1,0 +1,13 @@
+D:\Моё портфолио\C#\Quiet Journey\Quiet Journey\bin\Debug\netcoreapp3.1\Quiet Journey.exe
+D:\Моё портфолио\C#\Quiet Journey\Quiet Journey\bin\Debug\netcoreapp3.1\Quiet Journey.deps.json
+D:\Моё портфолио\C#\Quiet Journey\Quiet Journey\bin\Debug\netcoreapp3.1\Quiet Journey.runtimeconfig.json
+D:\Моё портфолио\C#\Quiet Journey\Quiet Journey\bin\Debug\netcoreapp3.1\Quiet Journey.runtimeconfig.dev.json
+D:\Моё портфолио\C#\Quiet Journey\Quiet Journey\bin\Debug\netcoreapp3.1\Quiet Journey.dll
+D:\Моё портфолио\C#\Quiet Journey\Quiet Journey\bin\Debug\netcoreapp3.1\Quiet Journey.pdb
+D:\Моё портфолио\C#\Quiet Journey\Quiet Journey\obj\Debug\netcoreapp3.1\Quiet Journey.csprojAssemblyReference.cache
+D:\Моё портфолио\C#\Quiet Journey\Quiet Journey\obj\Debug\netcoreapp3.1\Quiet Journey.AssemblyInfoInputs.cache
+D:\Моё портфолио\C#\Quiet Journey\Quiet Journey\obj\Debug\netcoreapp3.1\Quiet Journey.AssemblyInfo.cs
+D:\Моё портфолио\C#\Quiet Journey\Quiet Journey\obj\Debug\netcoreapp3.1\Quiet Journey.csproj.CoreCompileInputs.cache
+D:\Моё портфолио\C#\Quiet Journey\Quiet Journey\obj\Debug\netcoreapp3.1\Quiet Journey.dll
+D:\Моё портфолио\C#\Quiet Journey\Quiet Journey\obj\Debug\netcoreapp3.1\Quiet Journey.pdb
+D:\Моё портфолио\C#\Quiet Journey\Quiet Journey\obj\Debug\netcoreapp3.1\Quiet Journey.genruntimeconfig.cache
