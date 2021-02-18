@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 using System.IO;
 //using SaveExample;
 //using Save;
+using War;
 
 
 namespace Quiet_Journey
-{
+{   
+    
     public class Player
     {
         private string name;
@@ -146,6 +148,7 @@ namespace Quiet_Journey
         public Weapon slot3;
         public Weapon slot4;
         public int slot5;
+
         
 
         public static void NewGame ()
@@ -155,7 +158,8 @@ namespace Quiet_Journey
         }
         public static void ContinueGame ()
         {
-
+            MainWar test = new MainWar();
+            test.War();
         }
         public static void MainMenu()
         {
@@ -195,6 +199,7 @@ namespace Quiet_Journey
         }
         public static void Main()
         {
+            
             MainMenu();
 
 
