@@ -7,6 +7,7 @@ using System.IO;
 //using SaveExample;
 //using Save;
 using War;
+using MenuOptions;
 
 
 namespace Quiet_Journey
@@ -14,16 +15,72 @@ namespace Quiet_Journey
     
     public class Player
     {
-        private string name;
-        private int hp;
-        private int lvl;
-        public int money;
-        public void playerAdd (string name,int hp, int lvl,int money)
+        public string PlayerName;
+        public int Playerhp;
+        public int WeaponLvl;
+        public int moneyPlayer=200;
+        public int damagePlayer=10;
+        public int weaponPrice = 300;
+        public int[] helth = new int[5];
+        public void playerAdd (string name,int hp, int lvl)
         {
-            this.name = name;
-            this.hp = hp;
-            this.lvl = lvl;
-            this.money = money;
+            this.PlayerName = name;
+            this.Playerhp = hp;
+            this.WeaponLvl = lvl;
+        }
+        public void HelthCount (Player player)
+        {
+            for (int i=0;i<player.helth.Length;i++) {
+ //               player.helth[i];
+            };
+        }
+        public void WeaponLvlUp()
+        {
+            WeaponLvl++;
+            damagePlayer = damagePlayer + 5;
+
+            if (WeaponLvl <= 5)
+            {
+                weaponPrice = weaponPrice + (damagePlayer * 2) + (weaponPrice / 5);
+            }
+            if (WeaponLvl > 5 && WeaponLvl <= 10)
+            {
+                weaponPrice = weaponPrice + (damagePlayer * 2) + (weaponPrice / 4);
+            }
+            if (WeaponLvl > 10 && WeaponLvl <= 20)
+            {
+                weaponPrice = weaponPrice + (damagePlayer * 2) + (weaponPrice / 3) - 133;
+            }
+            if (WeaponLvl > 20)
+            {
+                weaponPrice = weaponPrice + (damagePlayer * 2) + (weaponPrice / 3);
+            }
+        }
+        public void WeaponLvlUp(int up)
+        {
+            WeaponLvl = WeaponLvl + up;
+            damagePlayer = damagePlayer + (5 * up);
+
+            if (WeaponLvl <= 5)
+            {
+                weaponPrice = weaponPrice + (damagePlayer * 2) + (weaponPrice / 5);
+            }
+            if (WeaponLvl > 5 && WeaponLvl <= 10)
+            {
+                weaponPrice = weaponPrice + (damagePlayer * 2) + (weaponPrice / 4);
+            }
+            if (WeaponLvl > 10 && WeaponLvl <= 20)
+            {
+                weaponPrice = weaponPrice + (damagePlayer * 2) + (weaponPrice / 3) - 133;
+            }
+            if (WeaponLvl > 20)
+            {
+                weaponPrice = weaponPrice + (damagePlayer * 2) + (weaponPrice / 3);
+            }
+        }
+        public void WeaponPrice()
+        {
+            Console.WriteLine(weaponPrice);
         }
     }
     public class Enemy
@@ -38,83 +95,11 @@ namespace Quiet_Journey
             this.damage = damage;
         }
     }
-    public class Weapon
-    {
-        private int damage;
-//        private bool has;
-        private string name;
-        private int lvl;
-        public int price;
- //       public bool hasInventory;
-        public void weaponAdd (string name,int damage, int lvl, int price)
-        {
-            this.damage = damage;
-            this.name = name;
-            this.lvl = lvl;
-            this.price = price;
-        }
-        public void weaponPrint ()
-        {
-            Console.WriteLine(name);
-            Console.WriteLine(damage);
-            Console.WriteLine(lvl);
-            Console.WriteLine(price);
-        }
-/*        public void weaponHas (bool has)
-        {
-            this.has= has;
-        }*/
-        public void weaponLvlUp ()
-        {
-            lvl++;
-            damage = damage + 5;
-            
-            if (lvl<=5) {
-                price = price + (damage * 2) + (price / 5);
-            }
-            if (lvl>5 && lvl<=10)
-            {
-                price = price + (damage * 2) + (price / 4);
-            }
-            if (lvl>10 && lvl<=20)
-            {
-                price = price + (damage * 2) + (price / 3) - 133;
-            }
-            if (lvl>20) {
-                price = price + (damage * 2) + (price / 3);
-            }
-        }
-        public void weaponLvlUp(int up)
-        {
-            lvl=lvl+up;
-            damage = damage + (5*up);
-
-            if (lvl <= 5)
-            {
-                price = price + (damage * 2) + (price / 5);
-            }
-            if (lvl > 5 && lvl <= 10)
-            {
-                price = price + (damage * 2) + (price / 4);
-            }
-            if (lvl > 10 && lvl <= 20)
-            {
-                price = price + (damage * 2) + (price / 3) - 133;
-            }
-            if (lvl > 20)
-            {
-                price = price + (damage * 2) + (price / 3);
-            }
-        }
-        public void weaponPrice ()
-        {
-            Console.WriteLine(price);
-        }
-    }
     public class npc
     {
         private string name;
         private int guild;
+        public string[] quest = new string[10];
         public void npcAdd(string name, int guild)
         {
             this.name = name;
@@ -140,27 +125,14 @@ namespace Quiet_Journey
         public bool location2 = false;
         public bool location3 = false;
 
-        public int[] helth = new int[5];
+       
         public int helthCount;
-
-        public Weapon slot1;
-        public Weapon slot2;
-        public Weapon slot3;
-        public Weapon slot4;
-        public int slot5;
 
         
 
-        public static void NewGame ()
-        {
+        
 
-            Main();
-        }
-        public static void ContinueGame ()
-        {
-            MainWar test = new MainWar();
-            test.War();
-        }
+           
         public static void MainMenu()
         {
             Console.WriteLine("Добро пожаловать в игру!");
@@ -168,35 +140,40 @@ namespace Quiet_Journey
                 "2 - Продолжить" + "\n" +
                 "3 - Настройки" + "\n" +
                 "4 - Выйти");
-            int menu = int.Parse(Console.ReadLine());
-            if (menu > 4)
-            {
-                Console.WriteLine("Введен некорректный номер интерфейса");
+            dynamic menu = Console.ReadLine();
+            if (!Char.IsNumber(menu,0)) {
                 while (menu > 4)
                 {
-                    menu = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Введен некорректный номер интерфейса");
+                    menu = Console.ReadLine();
+                }
+            }
+            if (menu != null || menu != " " || Char.IsNumber(menu,0))
+            {
+                menu = int.Parse(menu);
+            }
+            if (menu > 4 )
+            {              
+                while (menu > 4)
+                {
+                    Console.WriteLine("Введен некорректный номер интерфейса");
+                    menu = Console.ReadLine();
+                }
+                if (menu != null || menu != " " || Char.IsNumber(menu, 0))
+                {
+                    menu = int.Parse(menu);
                 }
             }
             switch (menu)
             {
-                case 1: NewGame(); break;
-                case 2: ContinueGame(); break;
-                case 3: Settings(); break;
-                case 4: Exit(); break;
+                case 1: Menu.NewGame(); break;
+                case 2: Menu.ContinueGame(); break;
+                case 3: Menu.Settings(); break;
+                case 4: Menu.Exit(); break;
+                default: MainMenu();break;
             }
         }
-        public static void Settings()
-        {
-
-        }
-        public static void Exit()
-        {
-            Environment.Exit(0);
-        }
-        public static void Menu ()
-        {
-            
-        }
+        
         public static void Main()
         {
             
