@@ -10,10 +10,36 @@ namespace MenuOptions
 {
     public class Menu
     {
-        public static void NewGame()
+        public static void  RecordSave()
         {
 
-            Quiet_Journey.Plot.Main();
+        }    
+        public static void NewGame()
+        {
+            string path = @"save.dll";
+            FileInfo saveHas= new FileInfo(path);
+            if (saveHas.Exists)
+            {
+                Console.WriteLine("У вас уже есть активное созранение. Хотите перезаписать его ?");
+                Console.WriteLine("Y - да, N - нет");
+                string VeryfiNewSave = Console.ReadLine();
+                VeryfiNewSave = VeryfiNewSave.ToUpper();
+                switch (VeryfiNewSave)
+                {
+                    case "Y":
+                        RecordSave();
+                        break;
+                    case "N":
+                        ContinueGame();
+                        break;
+                }
+            } else {
+                string pathNewSave = @"../../../example.cs";
+                FileInfo save = new FileInfo(pathNewSave);
+                save.CopyTo(path);
+                Console.WriteLine("Сохранение успешно пересоздано");
+            }
+            
         }
         public static void ContinueGame()
         {

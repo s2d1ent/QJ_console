@@ -128,10 +128,6 @@ namespace Quiet_Journey
        
         public int helthCount;
 
-        
-
-        
-
            
         public static void MainMenu()
         {
@@ -141,27 +137,20 @@ namespace Quiet_Journey
                 "3 - Настройки" + "\n" +
                 "4 - Выйти");
             dynamic menu = Console.ReadLine();
-            if (!Char.IsNumber(menu,0)) {
-                while (menu > 4)
-                {
-                    Console.WriteLine("Введен некорректный номер интерфейса");
-                    menu = Console.ReadLine();
-                }
-            }
-            if (menu != null || menu != " " || Char.IsNumber(menu,0))
+            
+            bool menuCheck=int.TryParse(menu,out int menu1);
+            if (menuCheck)
             {
                 menu = int.Parse(menu);
             }
-            if (menu > 4 )
+            if (menuCheck && menu > 4 || !menuCheck)
             {              
-                while (menu > 4)
+                while (menuCheck && menu > 4 || !menuCheck)
                 {
                     Console.WriteLine("Введен некорректный номер интерфейса");
                     menu = Console.ReadLine();
-                }
-                if (menu != null || menu != " " || Char.IsNumber(menu, 0))
-                {
-                    menu = int.Parse(menu);
+                    menuCheck = int.TryParse(menu, out int menu2);                   
+                    if (menuCheck){menu = int.Parse(menu);} else { continue;}
                 }
             }
             switch (menu)
